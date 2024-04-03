@@ -1,0 +1,347 @@
+﻿@model Railwayweb.Models.Railway.Bookingform
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railway's</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="~/css/stylesheet.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="~/js/site.js"></script>
+    <style>
+        .card {
+            background-color: rgb(245, 245, 245);
+            margin-top: 5px;
+        }
+    </style>
+
+</head>
+<body>
+   @*  <header class="header">
+        <a href="#" class="logo">Railways's</a>
+        <nav class="nav-items">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Railway" asp-action="HomePage">Home</a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Railway" asp-action="LoginPage">Login</a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Railway" asp-action="RegistraionPage">Register</a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Railway" asp-action="SearchPage">Search</a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Railway" asp-action="BookingPage">Book</a>
+        </nav>
+    </header> *@
+    <div class="container ">
+        <form asp-action="AddBooking">
+            <div class="col">
+                <div class="card" id="GFG1" style="border-radius: 15px ;">
+                    <h5 class="card-header">Contact Information</h5>
+                    <div class="card-body p-5">
+                        <div class="row  ">
+                            
+                            <div class="col-4 ">
+                                <input asp-for="Email" type="email" id="email" name="email"
+                                       class="form-control" placeholder="Email" required>
+                            </div>
+                            <div class="col-4">
+                                <input asp-for="Phoneno" type="number" id="username" name="mobile"
+                                       class="form-control" placeholder="Phone no" required>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <br />
+            <hr />
+            <div class="col">
+
+
+                <div class="card" id="GFG2" style="border-radius: 15px ;">
+                    <h5 class="card-header">Train Information</h5>
+                    <div class="card-body p-3">
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="From" class="form-label">From:- </label>
+                                <span id="from"></span>
+
+                            </div>
+                            <div class="col-4">
+                                <label for="To" class="form-label">To:- </label>
+                                <span id="to"></span>
+
+                            </div>
+                            <div class="col-4">
+                                <label for="To" class="form-label">Train Name:- </label>
+
+                                <span id="Trainno"></span>
+
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="class" class="form-label">class:-</label>
+                                <span id="Seat"></span>
+
+                            </div>
+                            <div class="col-4">
+                                <label for="Price" class="form-label">price</label>
+                                <span id="price"></span>
+
+                            </div>
+                            <div class="col-4">
+                                <label for="Enter the Mobile No"
+                                       class="form-label">Date of travel</label>
+                                <span id="travel"></span>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <br />
+            <hr />
+            <div class="col">
+                <div class="card" id="GFG2" style="border-radius: 15px ;">
+                    <h5 class="card-header">Passenger Information</h5>
+                    <div class="card-body p-4">
+
+                        <div class="row">
+                            <div class="col">
+
+                                <input asp-for="BName" name="PName" type="text" class="form-control"
+                                       id="pName" placeholder="Passenger Name">
+                            </div>
+                            <div class="col">
+
+                                <input asp-for="Age" name="Age" type="number" class="form-control"
+                                       id="age" placeholder="Age">
+                            </div>
+                            <div class="col">
+
+                                <select asp-for="Gender" name="UserInformation[0].gender" class="form-control" id="gender"
+                                        name="Gender" placeholder="Gender">
+
+                                    <option value="">Gender</option>
+                                    <option value="MALE">MALE</option>
+                                    <option value="FEMALE">FEMALE</option>
+                                    <option value="OTHER">OTHER</option>
+
+                                </select>
+                            </div>
+                            <div class="col">
+
+                                <select asp-for="Berth" name="UserInformation[0].berth" class="form-control" id="berth"
+                                        name="Berth" placeholder="berth">
+
+                                    <option value="">Seat Reference</option>
+                                    <option value="UPPER">UPPER</option>
+                                    <option value="LOWER">LOWER</option>
+                                    <option value="MIDDLE">MIDDLE</option>
+                                    <option value="SIDE UPPER">SIDE UPPER</option>
+                                    <option value="SIDE LOWER">SIDE LOWER</option>
+                                    <option value="WINDOW">WINDOW</option>
+                                </select>
+                            </div>
+                            <div class="col">
+
+
+                                <input asp-for="Amount" type="number" class="form-control"
+                                       id="amount" placeholder="Amount">
+                            </div>
+                        </div>
+                        <br />
+
+                    </div>
+                </div>
+
+            </div>
+            <br />
+            <hr />
+
+
+            <div class="card" id="GFG2" style="border-radius: 15px ;">
+                <h5 class="card-header">Payment Information</h5>
+                <div class="card-body p-4">
+                    <div class="row">
+
+                        <div class="col">
+
+
+                            <input asp-for="CardNumber" type="number" class="form-control"
+                                   id="pcardnumber" placeholder="CARD NUMBER">
+                        </div>
+
+                        <div class="col">
+
+
+                            <input asp-for="CardName" type="text" class="form-control" id="pcardname"
+                                   placeholder="CARDHOLDER NAME">
+                        </div>
+                        <div class="col">
+
+
+                            <input asp-for="CMonth" id="pcardmonth" type="number" class="form-control"
+                                   placeholder="EXPIRY MONTH">
+                        </div>
+                        <div class="col">
+
+
+
+                            <input asp-for="CYear" id="pcardyear" type="number" class="form-control"
+                                   placeholder="EXPIRY YEAR">
+                        </div>
+                        <div class="col">
+
+
+                            <input asp-for="Cvno" id="pcardcvv" type="password" class="form-control"
+                                   placeholder="CVV">
+                        </div>
+                        <div class="col">
+
+
+                            <button class="btn btn-primary" type="button" id="submitForm">
+                                Pay now
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <br />
+
+            <button type="submit" class="btn btn-success" onclick="drop()">Submit</button>
+        </form>
+    </div>
+    @* <div class="row">
+
+
+    <div id="myGrid" class="ag-theme-alpine" style="height: 300px; width:1550px;"></div>
+
+
+
+    </div>
+    *@
+    <script>
+        $(document).ready(function () {
+
+            var dt = localStorage.getItem("userData");
+
+            console.log(JSON.parse(dt));
+            dt = JSON.parse(dt);
+            var from = document.getElementById('from');
+            var to = document.getElementById('to');
+            var trainno = document.getElementById('Trainno');
+            var seat = document.getElementById('Seat');
+            var price = document.getElementById('price');
+
+            var date = document.getElementById('travel');
+
+            from.innerHTML = dt[0].from;
+            to.innerHTML = dt[0].to;
+            trainno.innerHTML = dt[0].trainno;
+            seat.innerHTML = dt[0].seat;
+            price.innerHTML = dt[0].price;
+
+            date.innerHTML = dt[0].date;
+
+        });
+        $("#submitForm").click(function () {
+            alert("payment was successful.");
+        });
+
+    </script>
+    <script>
+
+        var gridOptionss = {
+            columnDefs: [
+
+                { field: 'username', headerName: 'Username', maxWidth: 100 },
+                { field: 'email', headerName: 'Email', maxWidth: 100 },
+                { field: 'phoneno', headerName: 'Contact No.', maxWidth: 100 },
+                { field: 'pName', headerName: 'Passenger Name', maxWidth: 100 },
+                { field: 'age', headerName: 'Age', maxWidth: 100 },
+                { field: 'gender', headerName: 'Gender', maxWidth: 100 },
+                { field: 'berth', headerName: 'Berth', maxWidth: 100 },
+                { field: 'amount', headerName: 'Amount', maxWidth: 100 },
+
+
+            ],
+            defaultColDef: {
+                sortable: true,
+                filter: true,
+                editable: true,
+            },
+
+        };
+
+        const eGridDivv = document.getElementById("myGrid");
+
+        new agGrid.Grid(eGridDivv, gridOptionss);
+        function drop() {
+            debugger;
+            let username = document.getElementById("username");
+            let email = document.getElementById("email");
+
+            let pName = document.getElementById("pName");
+            let age = document.getElementById("age");
+            let gender = document.getElementById("gender");
+            let berth = document.getElementById("berth");
+            let amount = document.getElementById("amount");
+
+            username = username.value;
+            email = email.value;
+            pName = pName.value;
+            age = age.value;
+            gender = gender.value;
+            berth = berth.value;
+            amount = amount.value;
+
+
+            const pdata = [{
+
+                "username": username,
+                "email": email,
+                "pName": pName,
+                "age": age,
+                "gender": gender,
+                "berth": berth,
+                "amount": amount
+
+            }];
+
+            var pdt = localStorage.getItem("pasengerData");
+            if (pdt) {
+                localStorage.removeItem("pasengerData");
+            }
+            localStorage.setItem("pasengerData", JSON.stringify(pdata));
+
+            // gridOptions.api.setRowData(pdata);
+
+
+        }
+
+    </script>
+</body>
+</html>

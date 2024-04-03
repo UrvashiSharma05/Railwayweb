@@ -1,0 +1,87 @@
+﻿
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railway's</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<link href="~/css/stylesheet.css" rel="stylesheet" />
+    <style>
+        .about-me{
+            margin-top:10px;
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+        <a href="#" class="logo"></a>
+    <nav class="nav-items">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Railway" asp-action="HomePage">Home</a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Railway" asp-action="LoginPage">Login</a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Railway" asp-action="RegistraionPage">Register</a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Railway" asp-action="SearchTrain">Search</a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Railway" asp-action="BookingPage">Book</a>
+    </nav>
+</header>
+    <div class="intro">
+        <h1>भारतीय रेलवे</h1>
+         @* <p>Indian Railways (IR) is a statutory body under the ownership of the Ministry of Railways.</p> *@
+        <a class="nav-link text-dark" asp-area="" asp-controller="Railway" asp-action="SearchTrain"><button>Search</button></a>
+    </div>
+    <div class="achievements">
+        <div class="work">
+            <i class="fas fa-atom"></i>
+            <p class="work-heading">Projects</p>
+            <p class="work-text">The Indian Government is  several initiatives to upgrade its aging railway infrastructure and enhance its quality of service. </p>
+        </div>
+        <div class="work">
+            <i class="fas fa-skiing"></i>
+            <p class="work-heading">Aim</p>
+            <p class="work-text">The Railway Ministry has announced plans to invest ₹5,400,000 crore (equivalent to ₹57 trillion or US$720 billion in 2023) to upgrade the railways by 2030.</p>
+        </div>
+        <div class="work">
+            <i class="fas fa-ethernet"></i>
+            <p class="work-heading">Network</p>
+            <p class="work-text">It manages the fourth largest national railway system in the world by size, with a total route length of 68,043 km (42,280 mi), running track length of 102,831 km (63,896 mi) .</p>
+        </div>
+    </div>
+    <div class="about-me">
+        <div class="about-me-text">
+            <h2>About Me</h2>
+            <p>
+                The Indian Government is undertaking several initiatives to upgrade its aging railway infrastructure and enhance its quality of service. The Railway Ministry has announced plans to invest ₹5,400,000 crore (equivalent to ₹57 trillion or US$720 billion in 2023) to upgrade the railways by 2030.Indian Railways' is working to provide free high-speed internet facility at stations as soon as possible. Over 800 railway stations have free wifi facility in India and more stations are being connected as well. Recently, 51 stations under South Central Railway, East Coast Railway got free Wi-Fi connectivity.
+                According to a ToI report citing South Central Railway (SCR) officials, about 24 'A1' and 'A' category stations along with 27 rural railway stations have been provided with high-speed Wi-Fi service. The service is offered under the brand name 'RailWire'.
+                It may be noted that  RailTel, a ‘Mini Ratna’ central PSU under the Ministry of Railways, is one of the world's largest and fastest public WiFi networks. RailTel has so far provided high-speed WiFi at over 400 stations across the country. It has collaborated with Google to provide high-speed wireless internet facility at stations.
+                According to railway officials, the internet speed for the first half hour in a day is unrestricted and post 30 minutes the speed drops to 2 Mbps.
+            </p>
+        </div>
+        @* <img src="https://images.unsplash.com/photo-1596495578065-6e0763fa1178?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80" alt="me"> *@
+        <img src="https://law-all.com/image/cache/catalog/data/Category/Stationery/2021/PPS15-800x800.JPG" />
+    </div>
+  <footer class="footer">
+    <div class="copy">&copy; 2023Railway's</div>
+    <div class="bottom-links">
+        <div class="links">
+            <span>More Info</span>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="links">
+            <span>Social Links</span>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+  </footer>
+</body>
+</html>

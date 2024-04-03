@@ -1,0 +1,240 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railway's</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<link href="~/css/stylesheet.css" rel="stylesheet" />
+	
+	
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	
+	
+	<script src="~/js/javascript.js"></script>
+	<script src="~/js/site.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/ag-grid-community@31.0.1/dist/ag-grid-community.min.js"></script>
+    <style>
+        .card {
+            background-color: rgb(245, 245, 245);
+            margin-top: 2px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo">Railways's</a>
+        <nav class="nav-items">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Railway" asp-action="HomePage">Home</a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Railway" asp-action="LoginPage">Login</a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Railway" asp-action="RegistraionPage">Register</a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Railway" asp-action="SearchTrain">Search</a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Railway" asp-action="BookingPage">Book</a>
+        </nav>
+    </header>
+    <section >
+        <style>
+            .fa-train {
+                color: red;
+            }
+
+            #GFG {
+                width: 30rem;
+                height: 20em;
+            }
+        </style>      
+        <form method="post">
+            <div class="row justify-content-center">
+                <div class="form-group col-4">
+                    <label><b>From:-</b></label><br />
+                    <select class="form-control" id="From" name="From">
+                        <option>----Select source Station ----</option>
+                    </select>
+                </div>
+                <div class="form-group col-4">
+                    <label><b>To:-</b></label><br />
+                    <select class="form-control" id="To" name="To">
+                        <option>----Select Destination----</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row  justify-content-center">
+              <div class="form-group col-8 content" style="display:None">
+                <label><b>Train:- </b></label><br />
+                <select class="form-cotrol" id="Trainno" name="Trainid">
+                    <option>----Select train----</option>
+                </select>
+              </div>
+                <div class="form-group col-8 content">
+                    <label><b>class refence</b></label><br />
+                    <select class="form-control" id="Seat" name="Seat">
+                        <option>class Reference</option>
+                    </select>
+                </div>
+                <br />
+                <br />
+                <div class="form-group" style="display:None">
+                    <label><b>price</b></label><br />
+                    <select class="form-control" id="price">
+                       <option>----Select price----</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="form-group col-8">
+                    <label><b>Date of jounrey:- </b></label><br />
+                    <input type="date" class="form-control" id="travel" value="" placeholder="date of jounrey">
+                </div>
+            </div>                                            
+            <br />
+             <div class="form-group justify-content-center">
+             <button type="button" class="btn  btn-primary  " onclick="DropDown();">Search</button>
+             <button type="reset" class="btn  btn-primary  " onclick="DropDown();" >Reset</button>
+             </div>
+        </form>
+
+        <br />
+        <br />
+        <br />
+        <div class="row">
+            <div id="myGrid" class="ag-theme-alpine" style="height: 300px; width:1500px;"></div>
+        </div>
+             @* <div>
+                <table id="tbl" class="table table-bordered-9 text-lg-center " border="1">
+                  <thead>
+                    <tr>
+                         <th>source</th>
+                         <th>destination</th>
+                         <th>train name</th>
+                         <th>Class</th>
+                         <th>Date</th>
+                    </tr>
+                  <thead>
+                  <tbody>
+                  </tbody>
+                  </table>
+             </div>      *@                   
+    </section>
+    <br />
+    <footer class="footer">
+        <div class="copy">&copy; 2022 Developer</div>
+        <div class="bottom-links">
+            <div class="links">
+                <span>More Info</span>
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="links">
+                <span>Social Links</span>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        var gridOptions = {
+            columnDefs: [
+
+                { field: 'from', headerName: 'From', maxWidth: 200 },
+                { field: 'to', headerName: 'To', maxWidth: 200 },
+                { field: 'trainno', headerName: 'Train Name', maxWidth: 200 },
+                { field: 'seat', headerName: 'class', maxWidth: 200 },
+                { field: 'price', headerName: 'Price', maxWidth: 170 },
+                { field: 'date', headerName: 'Date of jounery', maxWidth: 200 },
+
+                {
+                    headerName: "Book now",
+                    field: "",
+                    cellRenderer: function (params) {
+                        // Construct the href link using the controller and action method
+                        var link = '<a href="/Railway/RegistraionPage">book now</a>';
+                        return link;
+                    }
+                }
+
+            ],
+            defaultColDef: {
+                sortable: true,
+                filter: true,
+                editable: true,
+            },
+
+        };
+
+        const eGridDiv = document.getElementById("myGrid");
+        new agGrid.Grid(eGridDiv, gridOptions);
+
+
+        function DropDown() {
+            let CountryName = document.getElementById("From");
+            let stateName = document.getElementById("To");
+            let CityName = document.getElementById("Trainno");
+            let seat = document.getElementById("Seat");
+            let price = document.getElementById("price");
+            let travel = document.getElementById("travel");
+
+            var cityNameArray = new Array();
+
+            for (i = 0; i < CityName.options.length; i++) {
+                let temp = CityName.options[i].text;
+                cityNameArray[i] = temp;
+            }
+
+
+
+            var countryText = CountryName.options[CountryName.selectedIndex].text;
+            var stateText = stateName.options[stateName.selectedIndex].text;
+
+            var cityText = CityName.options[CityName.selectedIndex].text;
+            var seatData = seat.options[seat.selectedIndex].text;
+            var priceData = price.options[price.selectedIndex].text;
+            var date = travel.value;
+
+
+
+
+            // let table = document.getElementById("tbl");
+            // let newRow = table.insertRow(table.rows.length);
+
+            const data = [{
+
+                "from": countryText,
+                "to": stateText,
+                "trainno": cityNameArray,
+                "seat": seatData,
+                "price":priceData,
+                "date": date
+            }];
+            debugger
+            var dt = localStorage.getItem("userData");
+            if (dt) {
+                localStorage.removeItem("userData");
+            }
+            localStorage.setItem("userData", JSON.stringify(data));
+
+
+            gridOptions.api.setRowData(data);
+
+            // newRow.insertCell(0).innerHTML = countryText;
+            // newRow.insertCell(1).innerHTML = stateText;
+            // newRow.insertCell(2).innerHTML = cityNameArray;
+            // newRow.insertCell(3).innerHTML = seatData;
+            // newRow.insertCell(4).innerHTML = date;
+
+        }
+
+
+    </script>
+</body>
+</html>

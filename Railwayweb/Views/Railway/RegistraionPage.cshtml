@@ -1,0 +1,134 @@
+﻿@model Railwayweb.Models.Railway.Regisform
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railway's</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<link href="~/css/stylesheet.css" rel="stylesheet" />
+    <style>
+        section {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%), url("https://static.theprint.in/wp-content/uploads/2023/05/Vande-Bharat-Express.jpg");
+        }
+
+        .card {
+            height: 500px;
+            width: 450px;
+            margin-top:30px;
+            background-color: rgb(245, 245, 245);
+            
+            
+            
+        }
+    </style>
+
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo">Railways's</a>
+        <nav class="nav-items">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Railway" asp-action="HomePage">Home</a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Railway" asp-action="LoginPage">Login</a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Railway" asp-action="RegistraionPage">Register</a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Railway" asp-action="SearchTrain">Search</a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Railway" asp-action="BookingPage">Book</a>
+        </nav>
+    </header>
+    <section >
+        <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+            <div class="container h-100">
+                <div class="row d-flex justify-content-start align-items-center h-100">
+                    <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                        <div class="card" style="border-radius: 10px ;">
+                            <div class="card-body p-3">
+                                <h2 class=" text-center mb-5">Registration </h2>
+                                <form method="post" action="Add">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <input type="text" id="firstName" placeholder="First Name" class="form-control" asp-for="FirstName" autofocus>
+
+                                        </div>
+                                        <div class="col-6">
+                                            <input type="text" id="LastName" placeholder="Last Name" class="form-control" asp-for="LastName" autofocus>
+
+                                        </div>
+                                    </div>
+                                    <br />
+
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <input type="text" id="contactno" placeholder="Phone no" class="form-control" asp-for="PhoneNo" autofocus>
+
+                                        </div>
+                                        <div class="col-6">
+                                            <input type="date" id="dob" placeholder="Birth-date" class="form-control" asp-for="DoB" autofocus>
+
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <input type="email" id="email"
+                                                   placeholder="Email" class="form-control" asp-for="Email">
+                                        </div>
+
+                                    </div>
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <input type="password"
+                                                   id="password" placeholder="Password" class="form-control" asp-for="Password">
+                                        </div>
+
+                                    </div>
+                                    <br />
+
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <input type="password"
+                                                   id="cpassword" placeholder="Confirm Password" class="form-control" asp-for="Cpassword">
+                                        </div>
+
+                                    </div>
+                                    <br />
+
+                                    <div class="d-flex justify-content-center">
+@*                                         <a class="nav-link text-dark" asp-area="" asp-controller="Railway" asp-action="LoginPage"><button type="submit" class="btn btn-primary btn-block btn-lg gradient-custom-4 text-body">Submit</button></a>                                       *@
+                                        <button type="submit" class="btn btn-primary btn-block btn-lg gradient-custom-4 text-body">Submit</button>
+                                    </div>
+                                    <p class="text-center text-muted mt-3 mb-0"> Don't have account? <a class="nav-link text-dark" asp-controller="Railway" asp-action="LoginPage" class="fw-bold text-body"><u>Login</u></a></p>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="copy">&copy; 2022 Developer</div>
+        <div class="bottom-links">
+            <div class="links">
+                <span>More Info</span>
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="links">
+                <span>Social Links</span>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+

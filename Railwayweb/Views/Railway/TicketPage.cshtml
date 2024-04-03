@@ -1,0 +1,289 @@
+﻿@model Railwayweb.Models.Railway.Bookingform
+@{
+    Layout = null;
+
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railway's</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="~/css/stylesheet.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="~/js/site.js"></script>
+    <style>
+        .card {
+            background-color: rgb(245, 245, 245);
+            margin-top: 5px;
+        }
+
+        h1 {
+            color: #365486;
+            text-align: center;
+        }
+
+        h2 {
+            color: #365486;
+            text-align: center;
+        }
+
+        h3 {
+            color: grey;
+        }
+
+        #Satymev {
+            text-align: end;
+        }
+    </style>
+
+</head>
+<body>
+    @*  <header class="header">
+    <a href="#" class="logo">Railways's</a>
+    <nav class="nav-items">
+    <a class="nav-link text-dark" asp-area="" asp-controller="Railway" asp-action="HomePage">Home</a>
+    <a class="nav-link text-dark" asp-area="" asp-controller="Railway" asp-action="LoginPage">Login</a>
+    <a class="nav-link text-dark" asp-area="" asp-controller="Railway" asp-action="RegistraionPage">Register</a>
+    <a class="nav-link text-dark" asp-area="" asp-controller="Railway" asp-action="SearchPage">Search</a>
+    <a class="nav-link text-dark" asp-area="" asp-controller="Railway" asp-action="BookingPage">Book</a>
+    </nav>
+    </header> *@
+    <div class="container ">
+        <div class="row">
+
+            <div class="col-3">
+                <img src="/lib/RailTicketLogo4.jpg" />
+            </div>
+            <div class="col-5">
+                <h2><u>भारतीय रेल मंत्रालय</u></h2>
+                <h1>Electronic Reservation Slip</h1>
+                <h4></h4>
+            </div>
+            <div class="col-3" id="Satymev">
+                <img src="/lib/satymevlogo2.jpg" height="180" />
+            </div>
+
+
+        </div>
+        <hr />
+		<div class="col">
+			<div class="card" id="GFG1" style="border-radius: 15px ;">
+				<h5 class="card-header">Contact Information</h5>
+				<div class="card-body p-5">
+					<div class="row  ">
+						
+						<div class="col-6">
+							<label for="To" class="form-label">Email: </label>
+							<span id="email"></span>
+
+						</div>
+						<div class="col-6">
+							<label for="To" class="form-label">Email: </label>
+							<span id="username"></span>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr />
+		<div class="col">
+
+
+			<div class="card" id="GFG2" style="border-radius: 15px ;">
+				<h5 class="card-header">Train Information</h5>
+				<div class="card-body p-3">
+					<div class="row">
+						<div class="col-4">
+							<label for="From" class="form-label">From :- </label>
+							<span id="from"></span>
+
+						</div>
+						<div class="col-4">
+							<label for="To" class="form-label">To :- </label>
+							<span id="to"></span>
+
+						</div>
+						<div class="col-4">
+							<label for="To" class="form-label">Train Name :- </label>
+
+							<span id="Trainno"></span>
+
+						</div>
+					</div>
+					<br />
+					<div class="row">
+						<div class="col-4">
+							<label for="class" class="form-label">class :-</label>
+
+							<span id="Seat"></span>
+
+						</div>
+						<div class="col-4">
+							<label for="Price" class="form-label">price :-</label>
+							<span id="price"></span>
+
+						</div>
+						<div class="col-4">
+							<label for="Enter the Mobile No"
+								   class="form-label">Date of travel :-</label>
+							<span id="travel"></span>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+		<hr />
+		<br />
+		<div class="col">
+			<div class="card" id="GFG2" style="border-radius: 15px ;">
+				<h5 class="card-header">Passenger Details</h5>
+				<div class="card-body p-4">
+					<div class="row">
+						<div class="col-3">
+							<label for="pname" class="form-label">Passenger Name: </label>
+							<br />
+							<span id="pName"></span>
+
+						</div>
+						<div class="col-2">
+							<label for="page" class="form-label">Age: </label>
+							<br />
+							<span id="age"></span>
+
+						</div>
+						<div class="col-2">
+							<label for="pgender" class="form-label">Gender: </label>
+							<br />
+							<span id="gender"></span>
+
+						</div>
+						<div class="col-2">
+							<label for="pberth" class="form-label">Berth:</label>
+							<br />
+							<span id="berth"></span>
+
+						</div>
+						<div class="col-2">
+							<label for="amount" class="form-label">Amount:</label>
+							<br />
+							<span id="amount"></span>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr />
+		<br />
+		<div class="col">
+			<div class="card" id="GFG2" style="border-radius: 15px ;">
+				<h5 class="card-header">Payment Details</h5>
+				<div class="card-body p-4">
+					<label for="fare" class="form-label">Ticket Fare</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Rs.&nbsp; </span><span id="fare"></span>
+
+					<br />
+					<label for="gst" class="form-label">Creating Chareges(GST)</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Rs.&nbsp; </span><span id="gst">20.00</span>
+
+					<br />
+					<label for="igst" class="form-label">IRCTC Covenience Fee(GST) </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Rs.&nbsp; </span><span id="igst">18.00</span>
+
+					<br />
+					<label for="tgst" class="form-label">Travel Insurance Premium(GST)</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Rs.&nbsp; </span><span id="tgst">1.00</span>
+
+					<br />
+					<label for="Tprice" onclick="fun1()" class="form-label">Total Fare(all inclusive)</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Rs.&nbsp; </span><span id="Tprice"></span>
+
+					<br />
+
+
+				</div>
+			</div>
+		</div>
+		<hr />
+		<br />
+
+		<div>
+			<button type="button" class="btn btn-success" onclick="window.print()">Get Ticket</button>
+		</div>
+		<hr />
+	</div>
+	<script>
+		$(document).ready(function () {
+			debugger;
+			var dt = localStorage.getItem("userData");
+
+			console.log(JSON.parse(dt));
+			dt = JSON.parse(dt);
+			var from = document.getElementById('from');
+			var to = document.getElementById('to');
+			var trainno = document.getElementById('Trainno');
+			var seat = document.getElementById('Seat');
+			var price = document.getElementById('price');
+			var date = document.getElementById('travel');
+
+			from.innerHTML = dt[0].from;
+			to.innerHTML = dt[0].to;
+			trainno.innerHTML = dt[0].trainno;
+			seat.innerHTML = dt[0].seat;
+			price.innerHTML = dt[0].price;
+			date.innerHTML = dt[0].date;
+
+			var pdt = localStorage.getItem("pasengerData");
+
+			console.log(JSON.parse(pdt));
+			pdt = JSON.parse(pdt);
+			var username = document.getElementById('username');
+			var email = document.getElementById('email');
+			var pName = document.getElementById('pName');
+			var age = document.getElementById('age');
+			var gender = document.getElementById('gender');
+			var berth = document.getElementById('berth');
+			var amount = document.getElementById('amount');
+			var fare = document.getElementById('fare');
+
+			username.innerHTML = pdt[0].username;
+			email.innerHTML = pdt[0].email;
+			pName.innerHTML = pdt[0].pName;
+			age.innerHTML = pdt[0].age;
+			gender.innerHTML = pdt[0].gender;
+			berth.innerHTML = pdt[0].berth;
+			amount.innerHTML = pdt[0].amount;
+			fare.innerHTML = pdt[0].amount;
+
+		});
+		function fun1() {
+			var fnum = document.getElementById("fare").innerHTML;
+			var snum = document.getElementById("gst").innerHTML;
+			var snum1 = document.getElementById("igst").innerHTML;
+			var snum2 = document.getElementById("tgst").innerHTML;
+			var tot = parseInt(fnum) + parseInt(snum) + parseInt(snum1) + parseInt(snum2);
+
+			document.getElementById("Tprice").innerHTML = tot;
+		}
+
+	</script>
+      
+</body>
+</html>
